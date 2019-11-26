@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 WRAPPER_PROPERTIES_FILE="flutter_wrapper.properties"
 WRAPPER_SDK_DIRECTORY="${HOME}/.flutter_wrapper"
