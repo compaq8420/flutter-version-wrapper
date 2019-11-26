@@ -12,12 +12,12 @@ PARAM=""
 # collection current installed flutter version info
 collection_sdk_info(){
     echo $1
-    version="$(cut -d'•' -f1 <<< $1)"
+    version="$(awk -F"•" '{printf $1}' <<< $1)"
     CURRENT_VERSION="$(cut -d' ' -f2 <<< ${version})"
-    channel="$(cut -d'•' -f2 <<< $1)"
-    CURRENT_CHANNEL="$(cut -d' ' -f2 <<< ${channel})"
-    git_url="$(cut -d'•' -f3 <<< $1)"
-    CURRENT_URL="$(cut -d' ' -f1 <<< ${git_url})"
+    channel="$(awk -F"•" '{printf $2}' <<< $1)"
+    CURRENT_CHANNEL="$(cut -d' ' -f3 <<< ${channel})"
+    git_url="$(awk -F"•" '{printf $3}' <<< $1)"
+    CURRENT_URL="$(cut -d' ' -f2 <<< ${git_url})"
 }
 
 # init() will create flutter_wrapper.property file
